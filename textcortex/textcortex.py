@@ -96,7 +96,7 @@ class TextCortex:
                 raise APIError(
                     'Reached API Limits, increase limits by contacting us at dev@textcortex.com or upgrade your account')
             if req.status_code == 500:
-                raise APIError('Ops, error {}'.format(str(req.json())))
+                raise APIError(f'Ops, error {str(req.json())}')
             return req.json()['generated_text']
         except APIError:
             return
